@@ -21,12 +21,11 @@ def dic_key_update(sw_versions_data_items):
         old_keys.append(k)
         new_keys.append(k + str(prefix))
     for old_key, new_key in zip(old_keys, new_keys):
-        print('old {}, new {}'.format(old_key, new_key))
         if new_key != old_key:
             sw_versions_data_items[new_key] = sw_versions_data_items.pop(old_key)
     return sw_versions_data_items
 
 
 sw_versions = dic_key_update(sw_versions_data)
-logging.info('My change sw_versions data is: {}' .format(sw_versions_data))
-
+logging.info('My change sw_versions data is: {}' .format(sw_versions))
+print(sw_versions)
