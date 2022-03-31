@@ -16,10 +16,10 @@ sw_versions_data = {'blackbox_exporter': {'version': '0.17.0-0.0.3', 'nvchecker_
 def dic_key_update(sw_versions_data_items):
     new_keys = []
     old_keys = []
-    prefix = " project"
+    prefix = "project "
     for i, (k, v) in enumerate(sw_versions_data_items.items()):
         old_keys.append(k)
-        new_keys.append(k + str(prefix))
+        new_keys.append(str(prefix) + k)
     for old_key, new_key in zip(old_keys, new_keys):
         if new_key != old_key:
             sw_versions_data_items[new_key] = sw_versions_data_items.pop(old_key)
