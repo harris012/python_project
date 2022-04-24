@@ -6,6 +6,11 @@ result = requests.get("https://services7.arcgis.com/mOBPykOjAyBO2ZKk/arcgis/rest
 
 output = json.loads(result.text)
 refined = output['features']
-print(refined)
+data = [{k: v for k, v in d.items() if k == 'attributes'} for d in refined]
+
+print(data)
 with open('data.json', 'w') as f:
-    json.dump(refined, f)
+    json.dump(data, f)
+
+with open('data.json', 'r') as o:
+    json
