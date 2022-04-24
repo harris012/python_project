@@ -1,6 +1,9 @@
 import requests
 import json
-result = requests.get("https://services7.arcgis.com/mOBPykOjAyBO2ZKk/arcgis/rest/services/RKI_Landkreisdaten/FeatureServer/0/query?where=OBJECTID=193%20&outFields=OBJECTID,%20GEN,%20BEZ,%20BL,%20cases,%20deaths,%20cases_per_population,%20cases7_per_100k,%20cases7_lk,%20death7_lk,%20cases7_bl_per_100k,%20cases7_bl,%20death7_bl,last_update&outSR=4326&f=json")
+
+region = 193
+URL = 'https://services7.arcgis.com/mOBPykOjAyBO2ZKk/arcgis/rest/services/RKI_Landkreisdaten/FeatureServer/0/query?where=OBJECTID={} &outFields=OBJECTID, GEN, BEZ, BL, cases, deaths, cases_per_population, cases7_per_100k, cases7_lk, death7_lk, cases7_bl_per_100k, cases7_bl, death7_bl,last_update&outSR=4326&f=json' .format(region)
+result = requests.get(URL)
 
 output = json.loads(result.text)
 refined = output['features']
