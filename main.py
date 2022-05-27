@@ -14,10 +14,11 @@ data = [{k: v for k, v in d.items() if k == 'attributes'} for d in refined]
 for d in data:
 	json_body = [{
 		"measurement": "GermanyData",
-		"tags": {"State": d['attributes']["BL"]},
+		"tags": {
+			"State": d['attributes']["BL"],
+			"city": d['attributes']["GEN"]},
 		"fields":{
-			"city": d['attributes']["GEN"],
-			"cases":d['attributes']["cases"],
+			"cases": d['attributes']["cases"],
 			"cases7_bl":d['attributes']["cases7_bl"],
 			"cases_per_100k":d['attributes']["cases_per_100k"],
 			"cases7_bl_per_100k":d['attributes']["cases7_bl_per_100k"],
