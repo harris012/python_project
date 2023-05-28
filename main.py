@@ -30,4 +30,5 @@ for d in data:
 		}}]
 	client.write_points(json_body)
 
-print('done')
+print('done and done')
+
